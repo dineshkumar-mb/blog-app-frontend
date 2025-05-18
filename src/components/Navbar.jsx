@@ -1,13 +1,17 @@
+// Navbar.jsx (use logout from context)
 import { Link, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
-  const token = localStorage.getItem('token');
   const navigate = useNavigate();
+  const { token, logout } = useContext(AuthContext);
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    navigate('/login');
+    logout();
+    toast.success('Logout successful');
+    navigate('/');
   };
 
   return (
@@ -21,7 +25,7 @@ const Navbar = () => {
                 <Link className="nav-link" to="/create">Create Blog</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/my-blogs">My Blogs</Link>
+                <Link className="nav-link" to="/my-blog">My Blog</Link>
               </li>
               <li className="nav-item">
                 <button className="btn btn-danger ms-2" onClick={handleLogout}>Logout</button>

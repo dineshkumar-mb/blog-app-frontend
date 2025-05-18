@@ -1,29 +1,31 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Navbar from './components/Navbar';
+// App.jsx (wrap in AuthProvider)
+import AuthProvider from './context/AuthContext';
+import { ToastContainer } from 'react-toastify';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Navbar from './components/Navbar';
 import AllBlogs from './pages/AllBlogs';
+import MyBlog from './pages/MyBlog';
 import CreateBlog from './pages/CreateBlog';
 import EditBlog from './pages/EditBlog';
-import MyBlogs from './pages/MyBlogs';
 
 function App() {
-  const token = localStorage.getItem('token');
-
   return (
-    <BrowserRouter>
-      <Navbar />
-      <div className="container mt-4">
+    <AuthProvider>
+      <Router>
+        <Navbar />
+        <ToastContainer />
         <Routes>
           <Route path="/" element={<AllBlogs />} />
-          <Route path="/login" element={!token ? <Login /> : <Navigate to="/" />} />
-          <Route path="/signup" element={!token ? <Signup /> : <Navigate to="/" />} />
-          <Route path="/create" element={token ? <CreateBlog /> : <Navigate to="/login" />} />
-          <Route path="/edit/:id" element={token ? <EditBlog /> : <Navigate to="/login" />} />
-          <Route path="/my-blogs" element={token ? <MyBlogs /> : <Navigate to="/login" />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/create" element={<CreateBlog />} />
+          <Route path="/my-blog" element={<MyBlog />} />
+          <Route path="/edit/:id" element={<EditBlog />} />
         </Routes>
-      </div>
-    </BrowserRouter>
+      </Router>
+    </AuthProvider>
   );
 }
 
