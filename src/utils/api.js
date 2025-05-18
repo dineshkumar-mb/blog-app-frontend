@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://localhost:5000', // Update for production
+  baseURL: 'https://blog-app-backend-yv8d.onrender.com', // Update for production
 });
 
 API.interceptors.request.use((req) => {
