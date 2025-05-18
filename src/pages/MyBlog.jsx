@@ -34,12 +34,12 @@ const MyBlog = () => {
   };
 
   return (
-    <div className="container">
-      <h2 className="my-4 text-center">My Blogs</h2>
+    <div className="container my-5">
+      <h2 className="text-center mb-4">My Blogs</h2>
       <div className="row">
         {blogs.map((blog) => (
-          <div key={blog._id} className="col-md-6 col-lg-4 mb-4">
-            <div className="card h-100 shadow-sm">
+          <div key={blog._id} className="col-12 col-sm-6 col-lg-4 mb-4 d-flex">
+            <div className="card w-100 h-100 shadow-sm">
               {blog.image && (
                 <img
                   src={blog.image}

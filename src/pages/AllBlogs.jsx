@@ -22,17 +22,17 @@ const AllBlogs = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container-fluid px-3 px-sm-4 px-md-5">
       <h2 className="my-4 text-center">All Blogs</h2>
       <div className="row mb-4">
-        <div className="col-md-6">
+        <div className="col-12 col-md-6 mb-3 mb-md-0">
           <input
             className="form-control"
             placeholder="Filter by category"
             onChange={(e) => setFilters({ ...filters, category: e.target.value })}
           />
         </div>
-        <div className="col-md-6">
+        <div className="col-12 col-md-6">
           <input
             className="form-control"
             placeholder="Filter by author"
@@ -42,8 +42,8 @@ const AllBlogs = () => {
       </div>
       <div className="row">
         {blogs.map((blog) => (
-          <div key={blog._id} className="col-md-6 col-lg-4 mb-4">
-            <div className="card h-100 shadow-sm">
+          <div key={blog._id} className="col-12 col-sm-6 col-lg-4 mb-4 d-flex">
+            <div className="card w-100 h-100 shadow-sm">
               {blog.image && (
                 <img
                   src={blog.image}
@@ -69,4 +69,3 @@ const AllBlogs = () => {
 };
 
 export default AllBlogs;
-

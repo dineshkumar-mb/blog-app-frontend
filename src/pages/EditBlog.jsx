@@ -26,17 +26,21 @@ const EditBlog = () => {
   };
 
   return (
-    <div className="col-md-6 offset-md-3">
-      <h3>Edit Blog</h3>
-      <form onSubmit={handleSubmit}>
-        <input name="title" value={blog.title} className="form-control mb-2" onChange={handleChange} required />
-        <input name="category" value={blog.category} className="form-control mb-2" onChange={handleChange} required />
-        <input name="image" value={blog.image} className="form-control mb-2" onChange={handleChange} />
-        <textarea name="content" value={blog.content} className="form-control mb-2" onChange={handleChange} required />
-        <button className="btn btn-primary w-100">Update</button>
-      </form>
+    <div className="container my-5">
+      <div className="row justify-content-center">
+        <div className="col-12 col-md-8 col-lg-6">
+          <h3 className="text-center mb-4">Edit Blog</h3>
+          <form onSubmit={handleSubmit}>
+            <input name="title" value={blog.title} className="form-control mb-3" onChange={handleChange} required />
+            <input name="category" value={blog.category} className="form-control mb-3" onChange={handleChange} required />
+            <input name="image" value={blog.image} className="form-control mb-3" onChange={handleChange} />
+            <textarea name="content" value={blog.content} className="form-control mb-3" rows="5" onChange={handleChange} required />
+            <button className="btn btn-primary w-100">Update</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default EditBlog;                                            
+export default EditBlog;
