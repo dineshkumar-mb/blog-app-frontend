@@ -10,3 +10,12 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+  ROUTES
+  LOGIN=https://merblog.netlify.app/login
+  SIGNUP=https://merblog.netlify.app/signup
+  CREATE-BLOG=https://merblog.netlify.app/create
+  MY-BLOG=https://merblog.netlify.app/my-blog
+  EDIT-BLOG=https://merblog.netlify.app/edit/id
+  DELETE-BLOG=https://merblog.netlify.app/delete/id
